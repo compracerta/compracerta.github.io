@@ -248,7 +248,7 @@
     }
     });
    document.getElementById('loadMore').onclick = function() {
-    for (let i = lineIndex; i < lineIndex + quantidade && i < lines.length; i++) {
+    for (let i = lineIndex; i < lineIndex + quantidade; i++) {
       appendToPage(lines[i]);
     }
     lineIndex += quantidade;
