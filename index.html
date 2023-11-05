@@ -249,7 +249,7 @@
     });
    document.getElementById('loadMore').onclick = function() {
     for (let i = lineIndex; i < lineIndex + quantidade && i < lines.length; i++) {
-    //console.log(lines[i]);
+      appendToPage(lines[i]);
     }
     lineIndex += quantidade;
     if (lineIndex >= lines.length) {
