@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes da oferta</title>
+   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main class="main">
+    <div class="mainWrapper">
+        <div class="mainBackground">
+            <div>
+                <div>
+                    <div class="productCard_block">
+                        <div class="row">
+                            <div class="small-12 large-6 columns">
+                                <div class="productCard_leftSide clearfix" >
+                                    
+                                    <div class="sliderBlock">
+                                        <ul class="sliderBlock_items" id="imagens">
+                                            
+                                        </ul>                                        
+                                        <div class="sliderBlock_controls">
+                                            <div class="sliderBlock_controls__navigatin">
+                                                <div class="sliderBlock_controls__wrapper">
+                                                    <div class="sliderBlock_controls__arrow sliderBlock_controls__arrowBackward">
+                                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="sliderBlock_controls__arrow sliderBlock_controls__arrowForward">
+                                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <ul class="sliderBlock_positionControls" style="display: none;">
+                                                <li class="sliderBlock_positionControls__paginatorItem sliderBlock_positionControls__active"></li>
+                                                <li class="sliderBlock_positionControls__paginatorItem"></li>
+                                                <li class="sliderBlock_positionControls__paginatorItem"></li>
+                                                <li class="sliderBlock_positionControls__paginatorItem"></li>
+                                                <li class="sliderBlock_positionControls__paginatorItem"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="small-12 large-6 columns">
+                                <div class="productCard_rightSide">
+                                    <div class="block_specification" style="display: none;">
+                                        <div class="block_specification__specificationShow">
+                                            <i class="fa fa-cog block_specification__button block_specification__button__rotate"
+                                               aria-hidden="true"></i>
+                                            <span class="block_specification__text">spec</span>
+                                        </div>
+                                        <div class="block_specification__informationShow hide">
+                                            <i class="fa fa-info-circle block_specification__button block_specification__button__jump"
+                                               aria-hidden="true"></i>
+                                            <span class="block_specification__text">info</span>
+                                        </div>
+                                    </div>                                   
+
+                                    <div class="block_product" id="produto">                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fullcont">
+
+                                <div id="media-container" onclick="closeMedia()" class="media-container" style="display: none;">
+                                    <button class="close-button" onclick="closeMedia()"><i class="fas fa-times"></i></button>
+                                    <video id="media-video" controls muted></video>
+                                    <img id="media-image" alt="Imagem">
+                                </div>
+
+                                <div><h2 class="block_name block_name__addName"> Avaliações de compradores: </h2></div>
+                                <div id="comentario"> 
+                                </div>
+                                <div id="maisAv">
+                                
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>  
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var id= urlParams.get('id');
+
+    if(top === self) { // not in a frame
+        window.location.href = "/?id=" + id; // redireciona para a URL desejada
+    }
+
+   fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/promocoes/' + id, { cache: 'no-store' })
+    .then(response => response.text())
+    .then(data => {compracerta.github.io
+    lines = data.split('\n').map(line => line.split(',')); 
+        //console.log(lines[0]);
+        let preco = lines[0][7].replace(/¶†✱/g, ',');
+        
+        img = `      
+        <li class="sliderBlock_items__itemPhoto sliderBlock_items__showing">
+            <img src="${lines[0][8]}" alt="${lines[0][3]}">
+        </li>
+        <li class="sliderBlock_items__itemPhoto">
+            <img src="${lines[0][9]}"  alt="${lines[0][3]}">
+        </li>
+        <li class="sliderBlock_items__itemPhoto">
+            <img src="${lines[0][10]}"  alt="${lines[0][3]}">
+        </li>
+        <li class="sliderBlock_items__itemPhoto">
+            <img src="${lines[0][11]}"  alt="${lines[0][3]}">
+        </li>
+        `
+
+        produto = `
+        <h2 class="block_name block_name__addName">${lines[0][3]}</h2>
+        <p class="block_product__advantagesProduct">
+            Vendido por Shopee
+        </p>
+        <div class="block_informationAboutDevice">
+           
+        <div class="block_rating clearfix">
+        <fieldset class="block_rating__stars"><label class="full"></label></fieldset>
+        <a href="${lines[0][0]} " target="_blank" class="block_rating__avarage">${lines[0][4]}</a>
+        <a href="${lines[0][0]} " target="_blank" class="block_rating__reviews">(${lines[0][5]} avaliações)</a>
+        </div>
+        <div class="row ">
+        <div class="large-6 small-12 column left-align">
+        <div class="block_price">Apartir de:
+        <p class="block_price__currency">${preco}</p>                                                        
+        </div>                    
+        </div><div class="large-6 small-12 column end">                    
+        <a href="${lines[0][0]}" target="_blank" class="comentarios button textoabaixa button_addToCard">Ver Oferta</a>
+        </div>
+        </div>
+        Oferta capturada em: ${lines[0][1]}<br>Verifique a disponibilidade,  alterações de preço podem ocorrer a qualquer momento, sem prévio aviso.
+        </div>
+        `;        
+
+        if (!lines[0][12] == "" ) {
+            let comment1 = lines[0][14].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment2 = lines[0][20].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment3 = lines[0][26].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment4 = lines[0][32].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment5 = lines[0][38].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment6 = lines[0][44].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+
+            let comment1img = '';
+            if (!lines[0][17] == "") {
+                comment1img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][17]}"><img src="${lines[0][17]}" width="90" height="90" alt="${lines[0][12]}"/></button>`;
+            }
+
+            let comment2img = '';
+            if (!lines[0][23] == "") {
+                comment1img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][23]}"><img src="${lines[0][23]}" width="90" height="90" alt="${lines[0][18]}"/></button>`;
+            }
+
+            let comment3img = '';
+            if (!lines[0][29] == "") {
+                comment2img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][29]}"><img src="${lines[0][29]}" width="90" height="90" alt="${lines[0][24]}"/></button>`;
+            }
+
+            let comment4img = '';
+            if (!lines[0][35] == "") {
+                comment3img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][35]}"><img src="${lines[0][35]}" width="90" height="90" alt="${lines[0][30]}"/></button>`;
+            }
+
+            let comment5img = '';
+            if (!lines[0][41] == "") {
+                comment4img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][41]}"><img src="${lines[0][41]}" width="90" height="90" alt="${lines[0][36]}"/></button>`;
+            }
+
+            let comment6img = '';
+            if (!lines[0][47] == "") {
+                comment5img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][47]}"><img src="${lines[0][47]}" width="90" height="90" alt="${lines[0][42]}"/></button>`;
+            }
+
+            comentario = `
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][12]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][13]}</span>
+            <span class="fulltext">${comment1}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][15]}"><img src="${lines[0][16]}" width="90" height="90" alt="${lines[0][12]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][16]}"><img src="${lines[0][16]}" width="90" height="90" alt="${lines[0][12]}"/></button>
+            ${comment1img}</div></div><hr></div>
+
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" >${lines[0][18]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][19]}</span>
+            <span class="fulltext">${comment2}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][21]}"><img src="${lines[0][22]}" width="90" height="90" alt="${lines[0][18]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][22]}"><img src="${lines[0][22]}" width="90" height="90" alt="${lines[0][18]}"/></button>
+            ${comment2img}</div></div><hr></div>
+
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][24]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][25]}</span>
+            <span class="fulltext">${comment3}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][27]}"><img src="${lines[0][28]}" width="90" height="90" alt="${lines[0][24]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][28]}"><img src="${lines[0][28]}" width="90" height="90" alt="${lines[0][24]}"/></button>
+            ${comment3img}</div></div><hr></div>
+
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][30]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][31]}</span>
+            <span class="fulltext">${comment4}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][33]}"><img src="${lines[0][34]}" width="90" height="90" alt="${lines[0][30]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][34]}"><img src="${lines[0][34]}" width="90" height="90" alt="${lines[0][30]}"/></button>
+            ${comment4img}</div></div><hr></div>
+
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][36]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][37]}</span>
+            <span class="fulltext">${comment5}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][39]}"><img src="${lines[0][40]}" width="90" height="90" alt="${lines[0][36]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][40]}"><img src="${lines[0][40]}" width="90" height="90" alt="${lines[0][36]}"/></button>
+            ${comment5img}</div></div><hr></div>
+
+            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][42]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][43]}</span>
+            <span class="fulltext">${comment6}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][45]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}" /><i class="fas fa-play play-icon"></i></button>
+            <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][46]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}"/></button>
+            ${comment5img}</div></div><hr></div>
+            `;
+            document.getElementById('comentario').innerHTML = comentario;
+            document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja mais avaliações (${lines[0][5]})</a>`;
+        } else {
+            comentario = "Não foi possivel obter comentários."
+            document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja as avaliações na página do produto (${lines[0][5]})</a>`;
+        }
+        
+        document.getElementById('imagens').innerHTML = img;
+        document.getElementById('produto').innerHTML = produto;
+        document.getElementById('comentario').innerHTML = comentario;
+        
+    });
+  </script>
+  <script  src="./script.js"></script>
+</body>
+</html>
