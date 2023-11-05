@@ -159,14 +159,35 @@
    function appendToPage(array) {
       //console.log(array);
       try {
-         let titulo = array[3].replace(/¶†✱/g, ',');
-         let preco = array[7].replace(/¶†✱/g, ',');
-         let vendidos = array[6].replace(/¶†✱/g, ',');
-         let avaliacao = array[4].replace(/¶†✱/g, ',');
+         let titulo = array[3].replace(/¶†✱/g, ',');         
+      } catch (error) {
+
+      };
+
+      try {
+         let preco = array[7].replace(/¶†✱/g, ',');         
+      } catch (error) {
+
+      };
+
+
+      try {         
+         let vendidos = array[6].replace(/¶†✱/g, ',');        
+      } catch (error) {
+
+      };
+
+      try {         
+         let avaliacao = array[4].replace(/¶†✱/g, ',');         
+      } catch (error) {
+
+      };
+
+      try {
          let id = array[0].replace('https://shope.ee/', '');
       } catch (error) {
 
-      }
+      };
 
       
       html = `
