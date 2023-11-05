@@ -101,7 +101,7 @@
 
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/promocoes/' + id, { cache: 'no-store' })
     .then(response => response.text())
-    .then(data => {compracerta.github.io
+    .then(data => {
     lines = data.split('\n').map(line => line.split(',')); 
         //console.log(lines[0]);
         let preco = lines[0][7].replace(/¶†✱/g, ',');
