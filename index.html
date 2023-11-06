@@ -251,9 +251,13 @@
       });
    
    document.getElementById('loadMore').onclick = function() {
-      for (let i = lineIndex; i < lineIndex + quantidade; i++) {          
-         let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-         appendToPage(lineq);
+      for (let i = lineIndex; i < lineIndex + quantidade; i++) {
+         console.log(lines[i]);
+
+          if (lines[i] !== undefined) {
+            let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+            appendToPage(lineq);
+          }
       }
       lineIndex += quantidade;
       loadMoreButtonHandler();
