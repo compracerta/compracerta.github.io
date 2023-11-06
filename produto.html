@@ -225,22 +225,22 @@
             `;
 
             if (!lines[0][12] == "") {
-                document.getElementById('comentario').innerHTML = comentario1;
+                document.getElementById('comentario').innerHTML += comentario1;
             }
             if (!lines[0][18] == "") {
-                document.getElementById('comentario').innerHTML = comentario2;
+                document.getElementById('comentario').innerHTML += comentario2;
             }
             if (!lines[0][24] == "") {
-                document.getElementById('comentario').innerHTML = comentario3;
+                document.getElementById('comentario').innerHTML += comentario3;
             }
             if (!lines[0][30] == "") {
-                document.getElementById('comentario').innerHTML = comentario4;
+                document.getElementById('comentario').innerHTML += comentario4;
             }
             if (!lines[0][36] == "") {
-                document.getElementById('comentario').innerHTML = comentario5;
+                document.getElementById('comentario').innerHTML += comentario5;
             }
             if (!lines[0][42] == "") {
-                document.getElementById('comentario').innerHTML = comentario6;
+                document.getElementById('comentario').innerHTML += comentario6;
             }
             document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja mais avaliações (${lines[0][5]})</a>`;
         } else {
