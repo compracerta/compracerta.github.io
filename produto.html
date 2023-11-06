@@ -102,11 +102,11 @@
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/promocoes/' + id, { cache: 'no-store' })
     .then(response => response.text())
     .then(data => {
-    lines = data.split('\n').map(line => line.split(',').replace(/¶†✱/g, ','));
-    lines = data.split('\n').map(line => line.split(',').join(',').replace(/¶†✱/g, ','));
+    let lines = data.split('\n').map(line => line.split(',').replace(/¶†✱/g, ','));    
 
         //console.log(lines[0]);
         let preco = lines[0][7].replace(/¶†✱/g, ',');
+        let titulo = lines[0][3].replace(/¶†✱/g, ',');
         
         img = `      
         <li class="sliderBlock_items__itemPhoto sliderBlock_items__showing">
@@ -124,7 +124,7 @@
         `
 
         produto = `
-        <h2 class="block_name block_name__addName">${lines[0][3]}</h2>
+        <h2 class="block_name block_name__addName">${titulo}</h2>
         <p class="block_product__advantagesProduct">
             Vendido por Shopee
         </p>
