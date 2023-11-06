@@ -256,11 +256,11 @@
       if (lines[i]) {
          appendToPage(lineq);
       }
+      if (lineIndex >= lines.length) {
+         this.remove();
+      }
     }
-    lineIndex += quantidade;
-    if (lineIndex >= lines.length) {
-    this.remove();
-    }
+    lineIndex += quantidade;    
    };
 
 </script>
