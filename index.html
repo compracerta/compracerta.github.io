@@ -253,7 +253,7 @@
     for (let i = lineIndex; i < lineIndex + quantidade; i++) {
       let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
       //console.log(lineq);
-      if (lines[i]) {
+      if (lines[i] !== undefined) {
          appendToPage(lineq);
       }
       if (lineIndex >= lines.length) {
