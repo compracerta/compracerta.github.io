@@ -237,31 +237,35 @@
    let lines = [];
    let lineIndex = 0;
    let quantidade = 15;
-
+   
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
-    .then(response => response.text())
-    .then(data => {
-    lines = data.split('\n').map(line => line.split(','));   
-    for (let i = 0; i < quantidade && i < lines.length -1; i++) {
-      let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-      //console.log(lineq); // Imprime as primeiras linhas
-      appendToPage(lineq);
-      lineIndex ++;
-    }
-    });
+      .then(response => response.text())
+      .then(data => {
+          lines = data.split('\n').map(line => line.split(','));  
+          for (let i = 0; i < quantidade && i < lines.length -1; i++) {
+              let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+              appendToPage(lineq);
+              lineIndex ++;
+          }
+          loadMoreButtonHandler();
+      });
+   
    document.getElementById('loadMore').onclick = function() {
-    for (let i = lineIndex; i < lineIndex + quantidade; i++) {
-      let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-      //console.log(lineq);
-      if (lines[i] !== undefined) {
-         appendToPage(lineq);
+      for (let i = lineIndex; i < lineIndex + quantidade; i++) {
+          if (lines[i] !== undefined) {
+              let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+              appendToPage(lineq);
+          }
       }
-      if (lineIndex >= lines.length) {
-         this.remove();
-      }
-    }
-    lineIndex += quantidade;    
+      lineIndex += quantidade;
+      loadMoreButtonHandler();
    };
+   
+   function loadMoreButtonHandler() {
+      if (lineIndex >= lines.length) {
+          document.getElementById('loadMore').remove();
+      }
+   }
 
 </script>
 </html>
