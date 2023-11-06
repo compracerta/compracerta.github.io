@@ -241,26 +241,23 @@
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
       .then(response => response.text())
       .then(data => {
-          lines = data.split('\n').map(line => line.split(','));  
-          for (let i = 0; i < quantidade && i < lines.length -1; i++) {
-              let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-              appendToPage(lineq);
-              lineIndex ++;
-          }
-          loadMoreButtonHandler();
+         lines = data.split('\n').map(line => line.split(','));  
+         for (let i = 0; i < quantidade && i < lines.length -1; i++) {
+            let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+            appendToPage(lineq);
+            lineIndex ++;
+         }
+         loadMoreButtonHandler();
       });
    
    document.getElementById('loadMore').onclick = function() {
       for (let i = lineIndex; i < lineIndex + quantidade; i++) {
-         lineIndex++;
-         console.log(lineIndex);
-
-          if (lines[i].length > 1) {
-            let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-            appendToPage(lineq);
-          } else {
-            document.getElementById('loadMore').remove();
-          }
+         if (lines[i].length > 1) {
+         let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+         appendToPage(lineq);
+         } else {
+         document.getElementById('loadMore').remove();
+         }
       }
    };
    
