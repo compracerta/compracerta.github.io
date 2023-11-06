@@ -1,7 +1,7 @@
 <!doctype html>
 <html data-n-head-ssr lang="pt-BR" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22pt-BR%22%7D%7D">
    <head>
-      <title>Promoções tops</title>
+      <title>Compra Certa</title>
       <meta data-n-head="ssr" charset="utf-8">
       <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
       <meta data-n-head="ssr" data-hid="description" name="description" content="Ofertas e cupons de desconto">
@@ -10,10 +10,10 @@
       <meta data-n-head="ssr" meta="lomadee-verification" content="23051799">
       <meta data-n-head="ssr" data-hid="charset" charset="utf-8">
       <meta data-n-head="ssr" data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
-      <meta data-n-head="ssr" data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="Promoções tops">
+      <meta data-n-head="ssr" data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="Compra Certa">
       <meta data-n-head="ssr" data-hid="og:type" name="og:type" property="og:type" content="website">
-      <meta data-n-head="ssr" data-hid="og:title" name="og:title" property="og:title" content="Promoções tops">
-      <meta data-n-head="ssr" data-hid="og:site_name" name="og:site_name" property="og:site_name" content="Promoções tops">
+      <meta data-n-head="ssr" data-hid="og:title" name="og:title" property="og:title" content="Compra Certa">
+      <meta data-n-head="ssr" data-hid="og:site_name" name="og:site_name" property="og:site_name" content="Compra Certa">
       <meta data-n-head="ssr" data-hid="og:description" name="og:description" property="og:description" content="Ofertas e cupons de desconto">
       <meta data-n-head="ssr" data-hid="og:url" name="og:url" property="og:url" content="https://site.com.br">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -112,9 +112,9 @@
                <footer class="bg-black text-white">
                   <div class="container mx-auto p-10 flex justify-between gap-10 flex-wrap"></div>
                   <div class="container mx-auto p-10 flex justify-between gap-10 flex-wrap text-justify" style="font-size: 13px;">
-                     AVISO LEGAL: O Promoções tops é um site de publicidade, não é uma loja e não vende produtos ou serviços para seus usuários. Seu uso é GRATUITO, mas antes, você deverá ler e aceitar os termos aqui descritos, se não aceitá-los, por favor, não use o Promoções tops: <br> As informações sobre as ofertas são capturadas diretamente da plataforma responsavel pelo anuncio.
+                     AVISO LEGAL: O Compra Certa é um site de publicidade, não é uma loja e não vende produtos ou serviços para seus usuários. Seu uso é GRATUITO, mas antes, você deverá ler e aceitar os termos aqui descritos, se não aceitá-los, por favor, não use o Compra Certa: <br> As informações sobre as ofertas são capturadas diretamente da plataforma responsavel pelo anuncio.
                      Fique atento à data de atualização de cada oferta, pois todos os preços estão sujeitos à disponibilidade de estoque e duração da oferta.
-                     Alterações de preço podem ocorrer a qualquer momento, sem prévio aviso. Em função disso, você concorda que as informações das lojas são as que devem ser validadas para sua decisão de compra, não responsabilizando o Promoções tops por eventuais divergências ou problemas com a compra.
+                     Alterações de preço podem ocorrer a qualquer momento, sem prévio aviso. Em função disso, você concorda que as informações das lojas são as que devem ser validadas para sua decisão de compra, não responsabilizando o Compra Certa por eventuais divergências ou problemas com a compra.
                      Cupons de descontos são sujeitos à condições, verifique na plataforma como utiliza-los.
                   </div>
                </footer>
@@ -139,7 +139,7 @@
    span.onclick = function() {
       iframe.src = 'about:blank';
       modal.style.display = "none";
-      window.history.replaceState({page: "index"}, "Promoções Tops", '/');
+      window.history.replaceState({page: "index"}, "Compra Certa", '/');
    }
 
    document.addEventListener('click', function(e) {
@@ -147,11 +147,11 @@
        modal.style.display = "block";
        iframe.src = e.target.getAttribute('data-url');
        let id = e.target.getAttribute('data-url').replace('/produto.html?id=','');
-       window.history.replaceState({page: "produto"}, "Promoções Tops - Detalhes da oferta", '/?id=' + id);
+       window.history.replaceState({page: "produto"}, "Compra Certa - Detalhes da oferta", '/?id=' + id);
      } else if (e.target.id === 'closeModal' || e.target === modal) {
        iframe.src = 'about:blank';
        modal.style.display = "none";
-       window.history.replaceState({page: "index"}, "Promoções Tops", '/');
+       window.history.replaceState({page: "index"}, "Compra Certa", '/');
        
      }
    });
