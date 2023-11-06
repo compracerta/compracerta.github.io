@@ -244,23 +244,26 @@
     lines = data.split('\n').map(line => line.split(','));   
     for (let i = 0; i < quantidade && i < lines.length -1; i++) {
       let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-
       console.log(lineq); // Imprime as primeiras linhas
       appendToPage(lineq);
       lineIndex ++;
     }
     });
-   document.getElementById('loadMore').onclick = function() {
-    for (let i = lineIndex; i < lineIndex + quantidade; i++) {
-      let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-      console.log(lineq);
-      appendToPage(lineq);
-    }
-    lineIndex += quantidade;
-    if (lineIndex >= lines.length) {
-    this.remove();
-    }
-   };
+    document.getElementById('loadMore').onclick = function() {
+   if (lineIndex + quantidade > lines.length) {
+       lineIndex = lines.length;
+   } else {
+       for (let i = lineIndex; i < lineIndex + quantidade; i++) {
+           let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+           console.log(lineq);
+           appendToPage(lineq);
+       }
+       lineIndex += quantidade;
+   }
+   if (lineIndex >= lines.length) {
+       this.remove();
+   }
+};
 
 </script>
 </html>
