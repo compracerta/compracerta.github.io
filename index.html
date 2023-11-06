@@ -258,16 +258,12 @@
             let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
             appendToPage(lineq);
           }
-      }
-      lineIndex += quantidade;
-      loadMoreButtonHandler();
-   };
-   
-   function loadMoreButtonHandler() {
-      if (lineIndex >= lines.length) {
+          if (lineIndex >= lines.length) {
          document.getElementById('loadMore').remove();
       }
-   }
-
+      }
+      lineIndex += quantidade;
+   };
+   
 </script>
 </html>
