@@ -251,11 +251,9 @@
       });
    
    document.getElementById('loadMore').onclick = function() {
-      for (let i = lineIndex; i < lineIndex + quantidade; i++) {
-          if (lines[i] !== undefined) {
-              let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-              appendToPage(lineq);
-          }
+      for (let i = lineIndex; i < lineIndex + quantidade -1; i++) {
+         let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+         appendToPage(lineq);
       }
       lineIndex += quantidade;
       loadMoreButtonHandler();
@@ -263,7 +261,7 @@
    
    function loadMoreButtonHandler() {
       if (lineIndex >= lines.length) {
-          document.getElementById('loadMore').remove();
+         document.getElementById('loadMore').remove();
       }
    }
 
