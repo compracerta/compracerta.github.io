@@ -251,7 +251,7 @@
       });
    
    document.getElementById('loadMore').onclick = function() {
-      for (let i = lineIndex -1; i < lineIndex + quantidade; i++) {          
+      for (let i = lineIndex; i < lineIndex + quantidade; i++) {          
          let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
          appendToPage(lineq);
       }
