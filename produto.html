@@ -104,7 +104,7 @@
     .then(data => {
     let lines = data.split('\n').map(line => line.split(',').replace(/¶†✱/g, ','));    
 
-        //console.log(lines[0]);
+        console.log(lines);
         let preco = lines[0][7].replace(/¶†✱/g, ',');
         let titulo = lines[0][3].replace(/¶†✱/g, ',');
         
