@@ -252,7 +252,8 @@
    
    document.getElementById('loadMore').onclick = function() {
       for (let i = lineIndex; i < lineIndex + quantidade; i++) {
-         //console.log(lines[i]);
+         lineIndex++;
+         console.log(lineIndex);
 
           if (lines[i].length > 1) {
             let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
@@ -260,9 +261,7 @@
           } else {
             document.getElementById('loadMore').remove();
           }
-
       }
-      lineIndex += quantidade;
    };
    
 </script>
