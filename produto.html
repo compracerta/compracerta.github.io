@@ -102,11 +102,11 @@
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/promocoes/' + id, { cache: 'no-store' })
     .then(response => response.text())
     .then(data => {
-    let lines = data.split('\n').map(line => line.split(','));    
+        let lines = data.split('\n').map(line => line.split(',').map(part => part.replace(/¶†✱/g, ',')));  
 
         console.log(lines);
-        let preco = lines[0][7].replace(/¶†✱/g, ',');
-        let titulo = lines[0][3].replace(/¶†✱/g, ',');
+        let preco = lines[0][7];
+        let titulo = lines[0][3];
         
         img = `      
         <li class="sliderBlock_items__itemPhoto sliderBlock_items__showing">
@@ -149,12 +149,12 @@
         `;        
 
         if (!lines[0][12] == "" ) {
-            let comment1 = lines[0][14].replace(/¶†✱/g, ',').replace(/;/g, ' ');
-            let comment2 = lines[0][20].replace(/¶†✱/g, ',').replace(/;/g, ' ');
-            let comment3 = lines[0][26].replace(/¶†✱/g, ',').replace(/;/g, ' ');
-            let comment4 = lines[0][32].replace(/¶†✱/g, ',').replace(/;/g, ' ');
-            let comment5 = lines[0][38].replace(/¶†✱/g, ',').replace(/;/g, ' ');
-            let comment6 = lines[0][44].replace(/¶†✱/g, ',').replace(/;/g, ' ');
+            let comment1 = lines[0][14].replace(/;/g, ' ');
+            let comment2 = lines[0][20].replace(/;/g, ' ');
+            let comment3 = lines[0][26].replace(/;/g, ' ');
+            let comment4 = lines[0][32].replace(/;/g, ' ');
+            let comment5 = lines[0][38].replace(/;/g, ' ');
+            let comment6 = lines[0][44].replace(/;/g, ' ');
 
             let comment1img = '';
             if (!lines[0][17] == "") {
