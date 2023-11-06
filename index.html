@@ -157,7 +157,7 @@
    });
 
    function appendToPage(array) {
-      console.log(array);
+      console.log('apend', array);
       let titulo = array[3];           
       let preco = array[7];
       let vendidos = array[6];
@@ -243,13 +243,14 @@
     .then(data => {
     lines = data.split('\n').map(line => line.split(','));   
     for (let i = 0; i < quantidade && i < lines.length -1; i++) {
-      console.log(lines[i]); // Imprime as primeiras linhas
+      console.log(lines[i].replace(/¶†✱/g, ',')); // Imprime as primeiras linhas
       appendToPage(lines[i].replace(/¶†✱/g, ','))
       lineIndex ++;
     }
     });
    document.getElementById('loadMore').onclick = function() {
     for (let i = lineIndex; i < lineIndex + quantidade; i++) {
+      console.log(lines[i].replace(/¶†✱/g, ','));
       appendToPage(lines[i].replace(/¶†✱/g, ','));
     }
     lineIndex += quantidade;
