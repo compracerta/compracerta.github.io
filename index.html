@@ -158,13 +158,34 @@
 
    function appendToPage(array) {
       //console.log(array);
-      if (array[3].contains('¶†✱')){
-         let titulo = array[3].replace(/¶†✱/g, ',');
+      let titulo = '';
+      if (array[3].includes('¶†✱')){
+        titulo = array[3].replace(/¶†✱/g, ',');
+      } else {
+         titulo = array[3];
+      }
+      
+      let preco = '';
+      if (array[7].includes('¶†✱')){
+         preco = array[7].replace(/¶†✱/g, ',');
+      } else {
+         preco = array[7];
       }
 
-      let preco = array[7].replace(/¶†✱/g, ',');
-      let vendidos = array[6].replace(/¶†✱/g, ',');
-      let avaliacao = array[4].replace(/¶†✱/g, ',');
+      let vendidos = '';
+      if (array[6].includes('¶†✱')){
+         vendidos = array[6].replace(/¶†✱/g, ',');
+      } else {
+         titulo = array[6];
+      }
+
+      let avaliacao = '';
+      if (array[4].includes('¶†✱')){
+         avaliacao = array[4].replace(/¶†✱/g, ',');
+      } else {
+         avaliacao = array[4];
+      }
+ 
       let id = array[0].replace('https://shope.ee/', '');
       
       html = `
