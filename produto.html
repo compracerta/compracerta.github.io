@@ -220,9 +220,8 @@
             
             let comentarios = [comentario1, comentario2, comentario3, comentario4, comentario5, comentario6];
             for (let i = 0; i < lines[0][5]; i++) {
-               if (comentarios[i] !== "") {
-                   document.getElementById('comentario').innerHTML += comentarios[i];
-               }
+                console.log(comentarios[i]);
+                document.getElementById('comentario').innerHTML += comentarios[i];
             }
 
             document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja mais avaliações (${lines[0][5]})</a>`;
