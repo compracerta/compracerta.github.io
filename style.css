@@ -558,7 +558,6 @@ input[type=radio] + label {
 .radio_button:checked + .block_goodColor__radio {
   width: 25px;
   height: 25px;
-  box-shadow: 0 0 5px 3px rgba(83, 109, 254, 0.5);
   border: 2px solid #fff;
 }
 
