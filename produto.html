@@ -122,7 +122,8 @@
             <img src="${lines[0][8]}"  alt="${lines[0][3]}">
         </li>
         `
-        let urlAt = window.location.href;
+        let urlAt = window.location.href.replace('/produto.html','');
+      
         produto = `
         <h2 class="block_name block_name__addName">${titulo}</h2>
         <p class="block_product__advantagesProduct">
