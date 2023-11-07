@@ -21,7 +21,7 @@
       <!-- <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"> -->
       <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
       <!-- <link data-n-head="ssr" data-hid="shortcut-icon" rel="shortcut icon" href="/favicon.ico"> -->
-	  <link rel="stylesheet" href="./main.css">
+	  <link rel="stylesheet" href="./main.css">ubusercontent.com/compracerta/compracerta.github.io/main/promocoes/
       <style data-vue-ssr-id="65b97e00:0 c93dc4dc:0 4db5b784:0 f2184300:0 7f1d95c6:0">
          
       </style>
@@ -34,15 +34,9 @@
                   <div class="lg:container flex items-center mx-auto flex-col sm:flex-row" data-v-131313>
                      <a href="/" class="flex items-center" data-v-131313><img style="width: 60px;" src="https://png.pngtree.com/png-vector/20230408/ourmid/pngtree-price-tag-with-the-discount-icon-vector-png-image_6686659.png" alt="Logo" class="mr-3 w-[250px] object-contain" data-v-131313></a> 
                      <div class="w-full flex mt-5 sm:mt-0 justify-between flex-col sm:flex-row" data-v-131313>
-                        <form class="w-full sm:w-1/2 sm:mx-5" data-v-131313>
+                        <form onsubmit="return validateForm()" name="pesquisa" class="w-full sm:w-1/2 sm:mx-5" data-v-131313>
                            <div class="bg-card rounded-3xl text-white py-2 px-3 w-full flex" data-v-131313>
-                              <input type="text" placeholder="Digite sua busca..." value class="w-full block p-2 rounded-lg text-black placeholder-gray-900 dark:bg-card dark:placeholder-gray-400 dark:text-white outline-none" data-v-131313>
-                              <div id="myModal" class="modal">
-                                 <div class="modal-content">
-                                    <span style="color: #000; float: right; cursor: pointer; padding-right: 20px;" id="closeModal"><i class="fas fa-times"></i></span>
-                                    <iframe id="iframe" src=""></iframe>
-                                 </div>
-                              </div>
+                              <input name="pesquisaTermo" type="text" placeholder="Digite sua busca..." class="w-full block p-2 rounded-lg text-black placeholder-gray-900 dark:bg-card dark:placeholder-gray-400 dark:text-white outline-none" data-v-131313>
                               <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="text-gray-500 rounded-lg text-sm p-2.5 mr-1" data-v-131313>
                                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" data-v-131313>
                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" data-v-131313></path>
@@ -51,6 +45,14 @@
                               </button>
                            </div>
                         </form>
+
+                        <div id="myModal" class="modal">
+                           <div class="modal-content">
+                              <span style="color: #000; float: right; cursor: pointer; padding-right: 20px;" id="closeModal"><i class="fas fa-times"></i></span>
+                              <iframe id="iframe" src=""></iframe>
+                           </div>
+                        </div>
+
                         <div class="grid grid-cols-2 mt-5 sm:mt-0 sm:grid-cols-3 gap-5" data-v-131313>
                            <!-- <a target="_blank" href="" class="hidden sm:flex cursor-pointer text-white bg-green-300 rounded-3xl items-center font-semibold py-1.5 px-4 bg-gradient-to-br from-black to-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 text-sm text-center" data-v-131313><img src="/icons/chrome_icon.svg" alt="Baixar a extensão" class="w-[32px] h-[32px] mx-1" data-v-131313>
                               Baixar a extensao</a> --> <a target="_blank" href="/telegram" class="cursor-pointer text-white bg-green-300 flex rounded-3xl items-center font-semibold py-1.5 px-4 bg-gradient-to-br from-black to-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 text-sm text-center" data-v-131313><img src="https://static-00.iconduck.com/assets.00/telegram-icon-2048x2048-l6ni6sux.png" alt="Grupo Telegram" class="w-[32px] h-[32px] mx-1 break-words" data-v-131313>
@@ -123,12 +125,38 @@
       </div>
    </body>
 <script>
-   var modal = document.getElementById("myModal");
-   var span = document.getElementById("closeModal");
-   var iframe = document.getElementById("iframe");
+   let modal = document.getElementById("myModal");
+   let span = document.getElementById("closeModal");
+   let iframe = document.getElementById("iframe");
 
-   var urlParams = new URLSearchParams(window.location.search);
-   var id= urlParams.get('id');
+   let urlParams = new URLSearchParams(window.location.search);
+   let id= urlParams.get('id');
+
+   function validateForm() {
+      let x = document.forms["pesquisa"]["pesquisaTermo"].value;
+      if (x == "") {
+      console.log('nada');
+        return false;
+      } else {
+         console.log(x);
+         console.log(x.length);
+         return false;
+      }
+   }
+
+   //fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
+   //   .then(response => response.text())
+   //   .then(data => {
+   //      lines = data.split('\n').map(line => line.split(','));
+   //
+   //      for (let i = 0; i < quantidade && i < lines.length -1; i++) {
+   //         let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));            
+   //         if (lineq[3].includes(searchTerm)){
+   //
+   //         }
+   //         
+   //      }
+   //});
 
    if (!id == "") {
       //console.log(id);      
@@ -247,7 +275,7 @@
             appendToPage(lineq);
             lineIndex ++;
          }
-      });
+   });
    
    document.getElementById('loadMore').onclick = function() {
       for (let i = lineIndex; i < lineIndex + quantidade; i++) {
@@ -258,7 +286,6 @@
          document.getElementById('loadMore').remove();
          }
       }
-   };
-   
+   };   
 </script>
 </html>
