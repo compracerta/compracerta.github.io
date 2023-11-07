@@ -180,44 +180,63 @@
                 comment6img = `<button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][47]}"><img src="${lines[0][47]}" width="90" height="90" alt="${lines[0][42]}"/></button>`;
             }
 
-            comentario = `
+            comentario1 = `
             <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][12]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][13]}</span>
             <span class="fulltext">${lines[0][14]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][15]}"><img src="${lines[0][16]}" width="90" height="90" alt="${lines[0][12]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][16]}"><img src="${lines[0][16]}" width="90" height="90" alt="${lines[0][12]}"/></button>
-            ${comment1img}</div></div><hr></div>
+            ${comment1img}</div></div><hr></div>`
 
+            comentario2 = `
             <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" >${lines[0][18]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][19]}</span>
             <span class="fulltext">${lines[0][20]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][21]}"><img src="${lines[0][22]}" width="90" height="90" alt="${lines[0][18]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][22]}"><img src="${lines[0][22]}" width="90" height="90" alt="${lines[0][18]}"/></button>
-            ${comment2img}</div></div><hr></div>
+            ${comment2img}</div></div><hr></div>`
 
-            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][24]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][25]}</span>
+            comentario3 = `<div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][24]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][25]}</span>
             <span class="fulltext">${lines[0][26]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][27]}"><img src="${lines[0][28]}" width="90" height="90" alt="${lines[0][24]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][28]}"><img src="${lines[0][28]}" width="90" height="90" alt="${lines[0][24]}"/></button>
-            ${comment3img}</div></div><hr></div>
+            ${comment3img}</div></div><hr></div>`
 
-            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][30]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][31]}</span>
+            comentario4 = `<div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][30]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][31]}</span>
             <span class="fulltext">${lines[0][32]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][33]}"><img src="${lines[0][34]}" width="90" height="90" alt="${lines[0][30]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][34]}"><img src="${lines[0][34]}" width="90" height="90" alt="${lines[0][30]}"/></button>
-            ${comment4img}</div></div><hr></div>
+            ${comment4img}</div></div><hr></div>`
 
-            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][36]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][37]}</span>
+            comentario5 = `<div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][36]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][37]}</span>
             <span class="fulltext">${lines[0][38]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][39]}"><img src="${lines[0][40]}" width="90" height="90" alt="${lines[0][36]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][40]}"><img src="${lines[0][40]}" width="90" height="90" alt="${lines[0][36]}"/></button>
-            ${comment5img}</div></div><hr></div>
+            ${comment5img}</div></div><hr></div>`
 
-            <div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][42]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][43]}</span>
+            comentario6 = `<div><span class="fulltext block_product__advantagesProduct"><a href="${lines[0][0]}" target="_blank">${lines[0][42]}</a></span><fieldset class="block_rating__stars"><label class="full"></label></fieldset><span class="block_rating__avarage">${lines[0][43]}</span>
             <span class="fulltext">${lines[0][44]}</span><div class="gallery"><div class="media"><br><span>vídeos/fotos do usuário:</span><br>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][45]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][46]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}"/></button>
-            ${comment6img}</div></div><hr></div>
-            `;
-            document.getElementById('comentario').innerHTML = comentario;
+            ${comment6img}</div></div><hr></div>`
+
+            if (!lines[0][12] == "") {
+                document.getElementById('comentario').innerHTML += comentario1;
+            }            
+            if (!lines[0][18] == "") {
+                document.getElementById('comentario').innerHTML += comentario2;
+            }
+            if (!lines[0][24] == "") {
+                document.getElementById('comentario').innerHTML += comentario3;
+            }
+            if (!lines[0][30] == "") {
+                document.getElementById('comentario').innerHTML += comentario4;
+            }
+            if (!lines[0][36] == "") {
+                document.getElementById('comentario').innerHTML += comentario5;
+            }
+            if (!lines[0][42] == "") {
+                document.getElementById('comentario').innerHTML += comentario6;
+            }
+
             document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja mais avaliações (${lines[0][5]})</a>`;
         } else {
             comentario = "Não foi possivel obter comentários."
