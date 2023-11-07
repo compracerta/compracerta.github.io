@@ -557,6 +557,9 @@ input[type=radio] + label {
 .button {
   background-color: rgba(23, 121, 186, 0)rgba(186, 23, 23, 0) !important;
 }
+.button:hover {
+  background-color: rgba(255, 0, 0, 0.527)rgba(186, 23, 23, 0) !important;
+}
 
 .radio_button:checked + .block_goodColor__radio {
   width: 25px;
