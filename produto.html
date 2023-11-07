@@ -217,25 +217,12 @@
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][45]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}" /><i class="fas fa-play play-icon"></i></button>
             <button class="media-button" onclick="toggleMedia(this)" data-media-src="${lines[0][46]}"><img src="${lines[0][46]}" width="90" height="90" alt="${lines[0][42]}"/></button>
             ${comment6img.outerHTML}</div></div><hr></div>`
-
-            if (!lines[0][12] == "") {
-                console.log(comentario1);
-                document.getElementById('comentario').innerHTML += comentario1;
-            }            
-            if (!lines[0][18] == "") {
-                document.getElementById('comentario').innerHTML += comentario2;
-            }
-            if (!lines[0][24] == "") {
-                document.getElementById('comentario').innerHTML += comentario3;
-            }
-            if (!lines[0][30] == "") {
-                document.getElementById('comentario').innerHTML += comentario4;
-            }
-            if (!lines[0][36] == "") {
-                document.getElementById('comentario').innerHTML += comentario5;
-            }
-            if (!lines[0][42] == "") {
-                document.getElementById('comentario').innerHTML += comentario6;
+            
+            let comentarios = [comentario1, comentario2, comentario3, comentario4, comentario5, comentario6];
+            for (let i = 0; i < lines[0][5]; i++) {
+               if (comentarios[i] !== "") {
+                   document.getElementById('comentario').innerHTML += comentarios[i];
+               }
             }
 
             document.getElementById('maisAv').innerHTML = `<a href="${lines[0][0]}" target="_blank" class="button textoabaixa comentarios button_addToCard">Veja mais avaliações (${lines[0][5]})</a>`;
