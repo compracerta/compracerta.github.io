@@ -554,6 +554,9 @@ input[type=radio] + label {
   background-color: #e8e6e3;
   cursor: pointer;
 }
+.button {
+  background-color: rgba(23, 121, 186, 0)rgba(186, 23, 23, 0) !important;
+}
 
 .radio_button:checked + .block_goodColor__radio {
   width: 25px;
