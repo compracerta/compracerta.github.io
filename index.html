@@ -265,6 +265,7 @@
          if (lines[i].length > 1) {
          let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
          appendToPage(lineq);
+         lineIndex ++;
          } else {
          document.getElementById('loadMore').remove();
          }
