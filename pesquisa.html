@@ -43,25 +43,19 @@
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let pesquisa = urlParams.get('pesquisa');
+            
+        let lines = [];
         if (!pesquisa == "") {
-            fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
+           fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
            .then(response => response.text())
            .then(data => {
-              lines = data.split('\n').map(line => line.split(','));  
-              for (let i = 0; i < lines.length -1; i++) {
-                 let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-                 appendToPage(lineq, pesquisa);
-                 lineIndex ++;
-              }
-        });
+               lines = data.split('\n').map(line => line.split(','));
+               lines = lines.filter(lineq => lineq[3].includes(pesquisa));
+               lines.forEach(lineq => appendToPage(lineq));
+           });
         } else{
-            window.location.href = '/';
+           window.location.href = '/';
         }
-
-        let lines = [];
-            
-        
-
 
         function appendToPage(array, searchTerm) {
             //console.log('apend', array);
@@ -136,8 +130,7 @@
                     </a>
                 </div>
             </div>
-            </div>
-                                
+            </div>                                
             `
             document.getElementById('titleS').innerHTML += 'Resultado para pesquisa: ' + searchTerm;
             document.getElementById('main').innerHTML += html;
