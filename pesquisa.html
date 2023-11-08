@@ -127,7 +127,7 @@
                     </span>
                 </div>
                 <div style="text-align: center;" class="justify-between sm:items-end flex-col gap-2">
-                    <button data-url="produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
+                    <a href="produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
                     <svg height="24" width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -136,7 +136,7 @@
                         </g>
                     </svg>
                     Mais detalhes
-                    </button>
+                    </a>
                     <a href="${array[0]}" target="_blank" type="button" class="top text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
                     <svg height="24" width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -154,5 +154,4 @@
             document.getElementById('titleS').innerHTML = 'Resultado para pesquisa: ' + searchTerm;
             document.getElementById('main').innerHTML += html;
         }
-
     </script>
