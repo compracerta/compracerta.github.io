@@ -561,6 +561,7 @@ input[type=radio] + label {
 }
 .botao {
   background-color: rgba(186, 23, 23, 0) !important;
+  padding: 0 !important;
 }
 .botao:hover {
   background-color: rgba(255, 0, 0, 0.527) !important;
