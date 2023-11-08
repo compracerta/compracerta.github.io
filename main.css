@@ -199,7 +199,6 @@
     iframe {
     width: 100% !important;
     height: 100%  !important;
-    border-radius: 2em;
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
     }
