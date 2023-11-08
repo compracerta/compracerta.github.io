@@ -34,6 +34,7 @@ img {
 }
 .textoabaixa {
   padding-top: 13px !important;
+  border-radius: 2em;
 }
 
 .media-button {
