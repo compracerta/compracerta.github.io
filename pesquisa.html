@@ -44,24 +44,31 @@
         let urlParams = new URLSearchParams(window.location.search);
         let pesquisa = urlParams.get('pesquisa');
         let pesquisaWords = pesquisa.split(' ').filter(word => word.length > 1);
-            
+
         let lines = [];
+        let resultadoEncontrado = false; // Variável para verificar se algum resultado foi encontrado
+
         if (pesquisaWords.length > 0) {
          fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
          .then(response => response.text())
          .then(data => {
          lines = data.split('\n').map(line => line.split(','));
          lines.forEach(lineq => {
-           lineq = lineq.map(element => element.replace(/¶†✱/g, ','));
-           pesquisaWords.forEach(word => {
-               if (lineq[3] && lineq[3].toLowerCase().includes(word.toLowerCase())) {
-                   appendToPage(lineq, pesquisa);
-               }
-           });
+          lineq = lineq.map(element => element.replace(/¶†✱/g, ','));
+          pesquisaWords.forEach(word => {
+              if (lineq[3] && lineq[3].toLowerCase().includes(word.toLowerCase())) {
+                  appendToPage(lineq, pesquisa);
+                  resultadoEncontrado = true; // Defina a variável como true se algum resultado for encontrado
+              }
+          });
          });
          });
         } else{
          window.location.href = '/';
+        }
+
+        if (!resultadoEncontrado) {
+         document.getElementById('titleS').innerHTML = 'Nenhum resultado encontrado para: ' + pesquisa;
         }
 
 
@@ -120,7 +127,7 @@
                     </span>
                 </div>
                 <div style="text-align: center;" class="justify-between sm:items-end flex-col gap-2">
-                    <button data-url="/produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
+                    <button data-url="produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
                     <svg height="24" width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

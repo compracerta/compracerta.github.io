@@ -21,7 +21,7 @@
       <!-- <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"> -->
       <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
       <!-- <link data-n-head="ssr" data-hid="shortcut-icon" rel="shortcut icon" href="/favicon.ico"> -->
-	  <link rel="stylesheet" href="./main.css">
+	  <link rel="stylesheet" href="main.css">
       <style data-vue-ssr-id="65b97e00:0 c93dc4dc:0 4db5b784:0 f2184300:0 7f1d95c6:0">         
       </style>
    </head>
@@ -33,7 +33,7 @@
                   <div class="lg:container flex items-center mx-auto flex-col sm:flex-row" data-v-131313>
                      <a href="/" class="flex items-center" data-v-131313><img style="width: 60px;" src="https://png.pngtree.com/png-vector/20230408/ourmid/pngtree-price-tag-with-the-discount-icon-vector-png-image_6686659.png" alt="Logo" class="mr-3 w-[250px] object-contain" data-v-131313></a> 
                      <div class="w-full flex mt-5 sm:mt-0 justify-between flex-col sm:flex-row" data-v-131313>
-                        <form onsubmit="return validateForm()" action="/pesquisa.html" method="get" name="pesq" class="w-full sm:w-1/2 sm:mx-5" data-v-131313>
+                        <form onsubmit="return validateForm()" name="pesq" class="w-full sm:w-1/2 sm:mx-5" data-v-131313>
                            <div class="bg-card rounded-3xl text-white py-2 px-3 w-full flex" data-v-131313>
                               <input name="pesquisa" type="text" placeholder="Digite sua busca..." class="w-full block p-2 rounded-lg text-black placeholder-gray-900 dark:bg-card dark:placeholder-gray-400 dark:text-white outline-none" data-v-131313>
                               <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="text-gray-500 rounded-lg text-sm p-2.5 mr-1" data-v-131313>
@@ -133,18 +133,19 @@
 
    function validateForm() {
       let x = document.forms["pesq"]["pesquisa"].value;
-      if (x == "") {
-         modal.style.display = "block";
-         iframe.src = '/pesquisa.html?pesquisa=' + x;
-         return true;
+      console.log(x);
+      if (x == "") {         
+         return false;
       } else {
+         modal.style.display = "block";
+         iframe.src = 'pesquisa.html?pesquisa=' + x;
          return false;
       }
    }
    if (!id == "") {
       //console.log(id);      
       modal.style.display = "block";
-      iframe.src = '/produto.html?id=' + id;
+      iframe.src = 'produto.html?id=' + id;
    }
 
    span.onclick = function() {
@@ -157,7 +158,7 @@
      if (e.target.classList.contains('openModal')) {
          modal.style.display = "block";
          iframe.src = e.target.getAttribute('data-url');
-         let id = e.target.getAttribute('data-url').replace('/produto.html?id=','');
+         let id = e.target.getAttribute('data-url').replace('produto.html?id=','');
          window.history.replaceState({page: "produto"}, "Compra Certa - Detalhes da oferta", '/?id=' + id);
      } else if (e.target.id === 'closeModal' || e.target === modal) {
          iframe.src = 'about:blank';
@@ -217,7 +218,7 @@
             </span>
          </div>
          <div style="text-align: center;" class="justify-between sm:items-end flex-col gap-2">
-            <button data-url="/produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
+            <button data-url="produto.html?id=${id}" type="button" class="openModal text-black dark:text-white hover:bg-secondary hover:border-secondary hover:text-white hover:dark-text-black border dark:border-white border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-xs sm:text-sm px-5 py-1 sm:py-2.5 text-center my-2 sm:my-0 inline-flex items-center justify-between gap-2">
                <svg height="24" width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                   <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

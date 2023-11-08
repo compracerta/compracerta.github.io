@@ -62,7 +62,6 @@ window.onload = function () {
     var buttonFullSpecification = document.getElementsByClassName("block_specification")[0];
     var buttonSpecification = document.getElementsByClassName("block_specification__specificationShow")[0];
     var buttonInformation = document.getElementsByClassName("block_specification__informationShow")[0];
-
     var blockCharacteristiic = document.querySelector(".block_descriptionCharacteristic");
     var activeCharacteristic = document.querySelector(".block_descriptionCharacteristic__active");
 
