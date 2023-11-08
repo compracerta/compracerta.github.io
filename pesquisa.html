@@ -43,7 +43,7 @@
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let pesquisa = urlParams.get('pesquisa');
-        let pesquisaWords = pesquisa.split(' ').filter(word => word.length > 1);
+        let pesquisaWords = pesquisa.split(' ').filter(word => word.length > 2);
             
         let lines = [];
         let resultadoEncontrado = false; // Variável para verificar se algum resultado foi encontrado
