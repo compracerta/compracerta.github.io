@@ -44,37 +44,34 @@
         let urlParams = new URLSearchParams(window.location.search);
         let pesquisa = urlParams.get('pesquisa');
         let pesquisaWords = pesquisa.split(' ').filter(word => word.length > 1);
-
+            
         let lines = [];
         let resultadoEncontrado = false; // Variável para verificar se algum resultado foi encontrado
-
+        let addedLines = new Set(); // Objeto para rastrear as linhas que já foram adicionadas
+            
         if (pesquisaWords.length > 0) {
          fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
          .then(response => response.text())
          .then(data => {
-         lines = data.split('\n').map(line => line.split(','));
-         lines.forEach(lineq => {
-          lineq = lineq.map(element => element.replace(/¶†✱/g, ','));
-          pesquisaWords.forEach(word => {
-              if (lineq[3] && lineq[3].toLowerCase().includes(word.toLowerCase())) {
-                  appendToPage(lineq, pesquisa);
-                  resultadoEncontrado = true; // Defina a variável como true se algum resultado for encontrado
-              }
-          });
-         });
+           lines = data.split('\n').map(line => line.split(','));
+           lines.forEach(lineq => {
+             lineq = lineq.map(element => element.replace(/¶†✱/g, ','));
+             pesquisaWords.forEach(word => {
+               if (lineq[3] && lineq[3].toLowerCase().includes(word.toLowerCase()) && !addedLines.has(lineq[3])) {
+                 appendToPage(lineq, pesquisa);
+                 resultadoEncontrado = true; // Defina a variável como true se algum resultado for encontrado
+                 addedLines.add(lineq[3]); // Adicione a linha ao conjunto de linhas adicionadas
+               }
+             });
+           });
          });
         } else{
          window.location.href = '/';
         }
-
+        
         if (!resultadoEncontrado) {
          document.getElementById('titleS').innerHTML = 'Nenhum resultado encontrado para: ' + pesquisa;
         }
-
-
-
-
-
 
         function appendToPage(array, searchTerm) {
             //console.log('apend', array);

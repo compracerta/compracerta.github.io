@@ -261,15 +261,16 @@
    });
    
    document.getElementById('loadMore').onclick = function() {
-      for (let i = lineIndex; i < lineIndex + quantidade; i++) {
+      for (let i = lineIndex; i < lineIndex + quantidade && i < lines.length; i++) {
          if (lines[i].length > 1) {
-         let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
-         appendToPage(lineq);
-         lineIndex ++;
+            let lineq = lines[i].map(element => element.replace(/¶†✱/g, ','));
+            appendToPage(lineq);           
          } else {
-         document.getElementById('loadMore').remove();
+            document.getElementById('loadMore').remove();
+            break;
          }
       }
-   };   
+      lineIndex += quantidade;
+   }; 
 </script>
 </html>
