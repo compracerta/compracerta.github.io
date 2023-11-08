@@ -43,19 +43,31 @@
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let pesquisa = urlParams.get('pesquisa');
+        let pesquisaWords = pesquisa.split(' ').filter(word => word.length > 1);
             
         let lines = [];
-        if (!pesquisa == "") {
-           fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
-           .then(response => response.text())
-           .then(data => {
-               lines = data.split('\n').map(line => line.split(','));
-               lines = lines.filter(lineq => lineq[3].includes(pesquisa));
-               lines.forEach(lineq => appendToPage(lineq));
+        if (pesquisaWords.length > 0) {
+         fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/test1', { cache: 'no-store' })
+         .then(response => response.text())
+         .then(data => {
+         lines = data.split('\n').map(line => line.split(','));
+         lines.forEach(lineq => {
+           lineq = lineq.map(element => element.replace(/¶†✱/g, ','));
+           pesquisaWords.forEach(word => {
+               if (lineq[3] && lineq[3].toLowerCase().includes(word.toLowerCase())) {
+                   appendToPage(lineq, pesquisa);
+               }
            });
+         });
+         });
         } else{
-           window.location.href = '/';
+         window.location.href = '/';
         }
+
+
+
+
+
 
         function appendToPage(array, searchTerm) {
             //console.log('apend', array);
@@ -132,7 +144,7 @@
             </div>
             </div>                                
             `
-            document.getElementById('titleS').innerHTML += 'Resultado para pesquisa: ' + searchTerm;
+            document.getElementById('titleS').innerHTML = 'Resultado para pesquisa: ' + searchTerm;
             document.getElementById('main').innerHTML += html;
         }
 
