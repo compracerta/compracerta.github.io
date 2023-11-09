@@ -140,7 +140,7 @@
       }
    }
    if (!id == "") {
-      //console.log(id);      
+      //console.log(id);
       modal.style.display = "block";
       iframe.src = 'produto.html?id=' + id;
    }
@@ -170,6 +170,7 @@
          }
          else {
            e.style.display = 'block';
+           e.scrollIntoView(true);
          }
          return;
       }
