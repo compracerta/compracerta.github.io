@@ -95,8 +95,17 @@
     var urlParams = new URLSearchParams(window.location.search);
     var id= urlParams.get('id');
 
-    if(top === self) { // not in a frame
-        window.location.href = "/?id=" + id; // redireciona para a URL desejada
+    function copiarLink() {
+      var text = window.location.href;
+      navigator.clipboard.writeText(text).then(function() {
+       console.log('Async: Copying to clipboard was successful! ', text);
+      }, function(err) {
+       console.error('Async: Could not copy text: ', err);
+      });
+   }
+
+    if(top === self) {
+        window.location.href = "/?id=" + id;
     }
 
    fetch('https://raw.githubusercontent.com/compracerta/compracerta.github.io/main/promocoes/' + id, { cache: 'no-store' })
@@ -135,6 +144,7 @@
             <a class="button botao" target="_blank" href="https://twitter.com/intent/tweet?url=${urlAt}&text=Confira essa promoção que encontrei ${lines[0][3]}" class="button"><img width="25" height="25" src="icons/twitter.png"></a>
             <a class="button botao" target="_blank" href="https://api.whatsapp.com/send?text=Confira essa promoção que encontrei: ${urlAt}" class="button"><img width="25" height="25" src="icons/whatsapp.png"></a>
             <a class="button botao" target="_blank" href="https://t.me/share/url?url=${urlAt}&text=Confira essa promoção que encontrei" class="button"><img width="25" height="25" src="icons/telegram.png"></a>
+            <a class="button botao" target="_blank" href="#" class="button"><img width="25" height="25" src="icons/copy.png" onclick="copiarLink()"></a>
         <div class="block_rating clearfix">
         <fieldset class="block_rating__stars"><label class="full"></label></fieldset>
         <a href="${lines[0][0]} "target="_blank" class="block_rating__avarage">${lines[0][4]}</a>
