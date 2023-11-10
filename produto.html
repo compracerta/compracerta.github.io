@@ -94,11 +94,10 @@
   <script>
     var urlParams = new URLSearchParams(window.location.search);
     var id= urlParams.get('id');
+    let urlAt = window.location.href.replace('/produto.html','');
 
     function copiarLink() {
-      var text = window.location.href;
-      navigator.clipboard.writeText(text).then(function() {
-       console.log('Async: Copying to clipboard was successful! ', text);
+      navigator.clipboard.writeText(urlAt).then(function() {
       }, function(err) {
        console.error('Async: Could not copy text: ', err);
       });
@@ -131,7 +130,7 @@
             <img src="${lines[0][8]}"  alt="${lines[0][3]}">
         </li>
         `
-        let urlAt = window.location.href.replace('/produto.html','');
+        
       
         produto = `
         <h2 class="block_name block_name__addName">${titulo}</h2>
