@@ -43,6 +43,11 @@
     position: relative;
     vertical-align: baseline;
     }
+    .botton {
+        position: absolute !important;
+        bottom: 0 !important;
+        width: 100vw;
+    }
     sub {
     bottom: -0.25em;
     }
